@@ -30,6 +30,7 @@
 #include "src/heard/heard.h"
 #include "src/cli/cli_proto.h"
 #include "logbuf.h"
+#include "display.h"
 
 const int STEP = 10;      // pointer speed per report while moving (any direction, see pace.h)
 const int STEP_MS = 8;    // report interval; constant pace keeps iOS acceleration predictable
@@ -396,6 +397,7 @@ void setup() {
   if (!cli_tcp_begin()) board_log("cli: Wi-Fi link failed to start");
   ble_begin("ESP32 Agent " + board_suffix());
   startAirplay();
+  display_begin();  // no-op unless built with --sticks3
   xTaskCreatePinnedToCore(statusTask, "status", 4096, NULL, 1, NULL, 1);
   board_log("boot %s fw %s: free internal heap %u (largest %u), PSRAM %u, reset %s\n", receiverName.c_str(), FW_VERSION,
                 (unsigned)heap_caps_get_free_size(MALLOC_CAP_INTERNAL),
