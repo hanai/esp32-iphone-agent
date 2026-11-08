@@ -151,6 +151,10 @@ hardware/flash.sh            # optional: [serial port] [--debug]
 
 Always build with `flash.sh`: it applies the BLE buffer sizes in `hardware/hid_bridge/nimble_cfg.h`.
 
+**M5 StickS3 (built-in screen):** also `arduino-cli lib install M5Unified`, then `hardware/flash.sh --sticks3`. The screen shows the link status
+(BLE, Wi-Fi, mirror, USB) and the Wi-Fi mode, SSID and IP. KEY1 turns the page; KEY2 shows the Wi-Fi password for 10 s (with a join QR
+code in hotspot mode). Without `--sticks3` the build is unchanged.
+
 No Mac or toolchain? [Install the firmware from Chrome or Edge](https://handsy.tech/install) over USB instead.
 
 ### 2. Install the app

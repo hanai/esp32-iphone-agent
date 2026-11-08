@@ -131,6 +131,9 @@ hardware/flash.sh            # 可选参数：[串口] [--debug]
 
 一定要用 `flash.sh` 编译：它会带上 `hardware/hid_bridge/nimble_cfg.h` 里的蓝牙缓冲区配置。
 
+**M5 StickS3（自带屏幕）：** 另外执行 `arduino-cli lib install M5Unified`，再运行 `hardware/flash.sh --sticks3`。屏幕显示链路状态
+（BLE、Wi-Fi、镜像、USB）以及 Wi-Fi 模式、SSID 和 IP。KEY1 翻页；KEY2 显示 Wi-Fi 密码 10 秒（热点模式下同时显示加入热点的二维码）。不加 `--sticks3` 时构建不变。
+
 没有 Mac 或不想装工具链？也可以用 Chrome 或 Edge 通过 USB [在网页上刷固件](https://handsy.tech/zh/install)。
 
 ### 2. 安装 App
